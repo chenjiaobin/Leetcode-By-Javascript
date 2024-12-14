@@ -44,7 +44,7 @@ console.log(searchMatrix([[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17
 var searchMatrix = function (matrix, target) {
   let m = matrix.length, n = matrix[0].length;
   let row = 0, column = n - 1;
-  while (row < m && column > 0) {
+  while (row < m && column >= 0) {
     if (matrix[row][column] === target) {
       return true;
     } else if (matrix[row][column] > target) {
@@ -58,3 +58,6 @@ var searchMatrix = function (matrix, target) {
 }
 
 console.log(searchMatrix([[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]], 30))
+
+// 时间复杂度：O(m + n)，因为row最多会增加到m，column最多会减少到0，所以时间复杂度是O(m + n)
+// 空间复杂度：O(1)
